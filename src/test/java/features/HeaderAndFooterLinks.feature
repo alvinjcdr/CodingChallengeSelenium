@@ -7,11 +7,11 @@ Feature: Header and Footer links
   @VerifyHeaderLinks
   Scenario Outline: Verify that when user clicks <Link> link on the header then <Page> page will be displayed
     When user clicks "<Link>" in header
-    Then "<Page>" page is displayed
-
+    Then verify that "<Page>" page is displayed
+    And close browser
     Examples:
       | Link              | Page               |
-      | HomePage          | ABN Lookup         |
+      | Home              | ABN Lookup         |
       | Search            | Search             |
       | Tools & resources | Tools & resources  |
       | Help              | Help               |
@@ -19,7 +19,8 @@ Feature: Header and Footer links
   @VerifyFooterLinks
   Scenario Outline: Verify that when user clicks <Link> link on the footer then <Page> page will be displayed
     When user clicks "<Link>" in footer
-    Then "<Page>" page is displayed
+    Then verify that "<Page>" page is displayed
+    And close browser
 
     Examples:
       | Link                | Page             |

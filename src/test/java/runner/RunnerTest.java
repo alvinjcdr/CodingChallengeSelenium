@@ -10,11 +10,9 @@ import static support.BasePage.softAssert;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        features = "src/test/java/feature/",
+        features = "src/test/java/features/",
         glue = {"stepdefs"},
-        tags = "@HomePageButtonsAndLinks"
-//        plugin = {"pretty",
-//                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:src/main/java/support/cucumber.json"}
+        tags = "@RegressionSuite"
 )
 
 public class RunnerTest {
