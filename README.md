@@ -17,6 +17,7 @@ Structure:
 - Step Definition files are located under Test > java > stepdefs
 - While the Page Class are defined in Test > java > pages. This is where the elements and methods are defined.
 - I also created a BasePage for all the elements or methods that can be reused, separated WebDriverManager for better maintenance, and added Environment Properties file for all the links/url.
+- Added Extent Reports to generate reports after each run
 - Lastly, the Runner File located in test > java > runner > RunnerTest. This is where you identify the tag of the scenario that you will be running.
 
 To run the test
@@ -25,4 +26,6 @@ To run the test
 Test Case Coverage:
 - Homepage
 - Searchpage
+- Tools & Resource
+- Help
 - Page validations
