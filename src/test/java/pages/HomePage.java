@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import support.BasePage;
@@ -45,7 +46,6 @@ public class HomePage extends BasePage {
         waitUntilClickable(iconSearch);
         iconSearch.click();
     }
-
     /**
      * click any link with given linkText
      * @param linkText String
@@ -57,7 +57,6 @@ public class HomePage extends BasePage {
         waitUntilClickable(ele);
         ele.click();
     }
-
     /**
      * verify home page is loaded successfully
      */
@@ -65,7 +64,6 @@ public class HomePage extends BasePage {
         String title = driver.getTitle();
         verifyTrue(title.contains("ABN Lookup"), "ABN Lookup homepage is displayed");
     }
-
     /**
      * Type in text in the search bar
      * @param searchText String
@@ -76,7 +74,6 @@ public class HomePage extends BasePage {
         textSearch.click();
         textSearch.sendKeys(searchText);
     }
-
     /**
      * Verify that all matching results is displayed
      * @param searchText String
@@ -87,7 +84,6 @@ public class HomePage extends BasePage {
             verifyTrue(result.getText().toLowerCase().contains(searchText), "ABN Lookup homepage is displayed");
         }
     }
-
     /**
      * Verify the correct page was loaded
      * @param pageName String
@@ -98,17 +94,14 @@ public class HomePage extends BasePage {
         verifyTrue(title.toLowerCase().contains(pageName), pageName + " is displayed");
         waitTillElementsLoadsByMilliSec(3000);
     }
-
     /**
      * Verify image is displayed
      * @param imageName String
-     * @throws Exception exception
      */
     public void verifyImageIsDisplayed(String imageName) {
         WebElement ele = driver.findElement(By.xpath("//*[@alt='" + imageName + "']"));
         verifyTrue(ele.isDisplayed(), imageName + " is displayed");
     }
-
     /**
      * Verify that banner message is displayed
      * @param bannerMessage String
@@ -117,7 +110,6 @@ public class HomePage extends BasePage {
         waitForElementToBeDisplayed(eleBannerMessage,10);
         verifyTrue(eleBannerMessage.getText().toLowerCase().contains(bannerMessage), bannerMessage + " is displayed");
     }
-
     /**
      * Verify that content intro is displayed
      */
@@ -125,13 +117,26 @@ public class HomePage extends BasePage {
         waitForElementToBeDisplayed(eleContentIntro,10);
         verifyTrue(eleContentIntro.isDisplayed(), eleContentIntro + " is displayed");
     }
-
     /**
      * Verify the correct page was loaded
-     * @throws Exception exception
      */
-    public void verifyTipsSection(String tips) throws Exception {
+    public void verifyTipsSection(String tips) {
         WebElement ele = driver.findElement(By.xpath("//div/h2[contains(text(),'" + tips + "')]"));
         verifyTrue(ele.isDisplayed(), tips + " is displayed");
+    }
+    /**
+     * method to go to sub menu
+     * @param mainMenu String
+     * @param subMenu String
+     * @throws Exception exception
+     */
+    public void goToSubMenu(String mainMenu, String subMenu) throws Exception {
+        waitTillElementsLoadsByMilliSec(2000);
+        WebElement main = driver.findElement(By.xpath("//a[contains(text(), '"+mainMenu+"')]"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(main);
+        WebElement sub = driver.findElement(By.xpath("//a[contains(text(), '"+subMenu+"')]"));
+        actions.moveToElement(sub);
+        actions.click().build().perform();
     }
 }

@@ -12,7 +12,10 @@ import static support.BasePage.softAssert;
 @CucumberOptions(
         features = "src/test/java/features/",
         glue = {"stepdefs"},
-        tags = "@RegressionSuite"
+        tags = "@VerifyToolsAndResources",
+        plugin = { "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
+
 )
 
 public class RunnerTest {

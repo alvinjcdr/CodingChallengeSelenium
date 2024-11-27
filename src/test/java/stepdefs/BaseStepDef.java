@@ -13,12 +13,10 @@ public class BaseStepDef extends BasePage {
         getBrowser();
         openUrl();
     }
-
     @Then("close browser")
     public void close_browser() {
         browserQuit();
     }
-
     @When("user clicks back in browser")
     public void clickBackInBrowser() throws Exception {
         clickNavigateBack(3000);

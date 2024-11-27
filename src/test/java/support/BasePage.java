@@ -37,7 +37,6 @@ public class BasePage extends WebDriverManager {
         softAssert.assertTrue(condition,msg);
     }
 
-
     public WebElement waitForElementToBeDisplayed(WebElement element, int... timeOutInSeconds) {
         int timeOut = timeOutInSeconds.length > 0 ? timeOutInSeconds[0] : 60;
         Wait<WebDriver> wait = new FluentWait<>(driver)
@@ -48,5 +47,4 @@ public class BasePage extends WebDriverManager {
         wait.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
-
 }

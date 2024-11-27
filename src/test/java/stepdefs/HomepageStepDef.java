@@ -41,32 +41,26 @@ public class HomepageStepDef extends BasePage {
     public void matchingResultsIsDisplayed(String searchText) throws Exception {
         homePage.matchingResultsIsDisplayed(searchText);
     }
-
     @Then("verify that {string} page is displayed")
     public void verifyThatPageIsDisplayed(String pageName) throws Exception {
         homePage.verifyThatPageIsDisplayed(pageName);
     }
-
     @When("user clicks {string} in header")
     public void clickLinkInHeader(String linkText) throws Exception {
         homePage.clickLink(linkText);
     }
-
     @When("user clicks {string} in footer")
     public void clickLinkInFooter(String linkText) throws Exception {
         homePage.clickLink(linkText);
     }
-
     @Then("verify that {string} image is displayed")
     public void verifyImageIsDisplayed(String imageName) throws Exception {
         homePage.verifyImageIsDisplayed(imageName);
     }
-
     @Then("verify {string} is displayed in banner message")
     public void verifyBannerMessage(String bannerMessage) throws Exception {
         homePage.verifyBannerMessage(bannerMessage);
     }
-
     @Then("verify content introduction element is displayed")
     public void verifyContentIntro() throws Exception {
         homePage.verifyContentIntro();
@@ -75,5 +69,8 @@ public class HomepageStepDef extends BasePage {
     public void verifyTipsSection(String tips) throws Exception {
         homePage.verifyTipsSection(tips);
     }
-
+    @When("user hovers to {string} and go to {string} page")
+    public void goToSubMenu(String mainMenu, String subMenu) throws Exception {
+        homePage.goToSubMenu(mainMenu, subMenu);
+    }
 }
