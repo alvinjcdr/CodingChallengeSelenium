@@ -16,6 +16,7 @@ Feature: Header and Footer links
       | Tools & resources | Tools & resources  |
       | Help              | Help               |
 
+
   @VerifyFooterLinks
   Scenario Outline: Verify that when user clicks <Link> link on the footer then <Page> page will be displayed
     When user clicks "<Link>" in footer
